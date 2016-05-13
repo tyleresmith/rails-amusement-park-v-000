@@ -6,11 +6,12 @@ class User < ActiveRecord::Base
   def mood
     @happiness = self.happiness
     @nausea = self.nausea
-
-    if @nausea > @happiness
-      "sad"
-    else
-      "happy"
+    if @nausea && @happiness
+      if @nausea > @happiness
+        "sad"
+      else
+        "happy"
+      end
     end
   end
 end

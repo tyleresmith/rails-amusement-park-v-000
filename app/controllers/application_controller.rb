@@ -5,11 +5,19 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    sessions[:user_id]
+    @user||= User.find_by(id: session[:user_id])
   end
 
   def user_login?
     redirect_to new_user_path unless current_user
+  end
+
+  def logged_in?
+    !current_user.nil?
+  end
+
+  def require_admin
+    current_user.admin
   end
 
 end

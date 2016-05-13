@@ -1,4 +1,4 @@
-<%= form_for user do |f| %>
+<%= form_for user, as: :admin, html: { id: 'user_admin'} do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
 
@@ -10,7 +10,6 @@
   <%= f.text_field :tickets %><br />
   <%= f.label :height %>:
   <%= f.text_field :height %><br />
-  <%= f.label :admin %>:
-  <%= f.check_box :admin %><br />
-  <%= f.submit "Create User"%>
+
+  <%= f.submit "Create Admin"%>
 <% end %>

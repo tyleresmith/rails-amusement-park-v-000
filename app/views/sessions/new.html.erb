@@ -1,0 +1,11 @@
+<%= form_for @user, url: '/sessions' do |f| %>
+  <%= f.label :name %>:
+  <%= f.collection_select :id, User.all, :id, :name %><br />
+  <%= f.submit "Sign In"%>
+<% end %>
+
+<!-- <%= form_for @user, url: '/sessions', html: {class: 'user_admin'} do |f| %>
+  <%= f.label 'Admin' %>:
+  <%= f.collection_select :id, User.where(admin: true), :id, :name %><br />
+  <%= f.submit "Sign In"%>
+<% end %> -->
